@@ -57,6 +57,10 @@ int main()
     // 读入奶酪数量
     cin >> n;
 
+    // 起点坐标设为(0,0)
+    a[0][0] = 0;
+    a[0][1] = 0;
+
     // 读入每块奶酪的坐标
     for (int i = 1; i <= n; ++i)
     {
@@ -69,16 +73,8 @@ int main()
     {
         for (int j = i + 1; j <= n; ++j)
         {
-            // 获取点i的坐标
-            double x1 = (i == 0) ? 0 : a[i][0];
-            double y1 = (i == 0) ? 0 : a[i][1];
-
-            // 获取点j的坐标
-            double x2 = (j == 0) ? 0 : a[j][0];
-            double y2 = (j == 0) ? 0 : a[j][1];
-
             // 计算距离并存储（对称赋值，确保dis[i][j]和dis[j][i]都有值）
-            dis[i][j] = dis[j][i] = f(x1, x2, y1, y2);
+            dis[i][j] = dis[j][i] = f(a[i][0], a[j][0], a[i][1], a[j][1]);
         }
     }
 
