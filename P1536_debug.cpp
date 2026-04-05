@@ -7,10 +7,11 @@ int fa[maxN];
 int find(int c)
 {
     cerr << "find(" << c << ")" << endl;
-    if(c < 1 || c >= maxN) {
+    if (c < 1 || c >= maxN)
+    {
         cerr << "ERROR: c=" << c << " out of range!" << endl;
     }
-    if(fa[c] == c)
+    if (fa[c] == c)
         return c;
     return fa[c] = find(c);
 }
@@ -18,7 +19,7 @@ void join(int a, int b)
 {
     cerr << "join(" << a << "," << b << ")" << endl;
     int f1 = find(a), f2 = find(b);
-    if(f1 != f2) 
+    if (f1 != f2)
     {
         fa[f1] = f2;
         res--;
@@ -51,7 +52,6 @@ int main()
             join(x, y);
         }
         cout << res - 1 << endl;
-
     }
     return 0;
 }
